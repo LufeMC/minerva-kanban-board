@@ -11,6 +11,8 @@ const doingColumn = document.getElementById("doing");
 const doingTasksList = doingColumn.getElementsByClassName("tasks-list")[0];
 const doneColumn = document.getElementById("done");
 const doneTasksList = doneColumn.getElementsByClassName("tasks-list")[0];
+const taskName = document.getElementById("task-name");
+const taskDescription = document.getElementById("task-description");
 
 newTaskButton.addEventListener("click", () => {
   addTaskContainer.classList.add("visible");
@@ -26,8 +28,6 @@ addTaskContainer.addEventListener("click", () => {
 
 addTaskForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  const taskName = document.getElementById("task-name");
-  const taskDescription = document.getElementById("task-description");
 
   if (!taskName.value || !taskDescription.value) {
     alert("Please add a task description and a task name");
@@ -130,6 +130,9 @@ const createTaskOnDom = (column, newTask) => {
   } else {
     doneTasksList.appendChild(taskContainer);
   }
+
+  taskDescription.value = "";
+  taskName.value = "";
 };
 
 const changeToNext = (lst, taskId) => {
